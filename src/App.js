@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-const App = () => {
-    const [time, setTime] = useState('');
-    const [showTimer, setShowTimer] = useState(true);
-    const parsTime = () => {
-        const timeToPars = new Date().toLocaleTimeString()
-        return timeToPars
-    }
+import { Timer } from "./Components/Timer";
 
-    useEffect(()=>{
-        const systemTimeOut = setInterval(()=>{
-            setTime(parsTime());
-        }, 1000);
-        return (()=>clearTimeout(systemTimeOut));
-    },[])
-    
+const App = () => {
+    const [showTimer, setShowTimer] = useState(true);
+
     return (<div>
-        {
-            showTimer && <h1>{time}</h1>
-        }
+        { showTimer && <Timer /> }
         <button onClick={()=>setShowTimer(showTimer=>!showTimer)}>Show Timer</button>
     </div>);
 }
