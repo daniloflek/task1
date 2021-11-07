@@ -12,8 +12,11 @@ module.exports = {
     },
     plugins:[
         new HtmlWebpackPlugins({
+            name: "index.html",
+            inject: false,
             template: './static/index.html'
-        }) 
+        })
+
     ],
     module: {
         rules: [
