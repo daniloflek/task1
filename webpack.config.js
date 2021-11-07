@@ -1,14 +1,20 @@
 const path = require('path');
+const HtmlWebpackPlugins = require("html-webpack-plugin");
 
 module.exports = {
     output: {
         path: path.join(__dirname, '/dist'),
         filename: 'index.bundle.js',
     },
+    watch: true,
     devServer: {
         port: 3001,
-        watchContentBase: true
     },
+    plugins:[
+        new HtmlWebpackPlugins({
+            template: './static/index.html'
+        }) 
+    ],
     module: {
         rules: [
             {
